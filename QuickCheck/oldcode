@@ -1,0 +1,24 @@
+df$data=lapply(df$data, function(x) as.numeric(strsplit(x,split=",",fixed=TRUE)[[1]])) # convert csv to numeric vector
+df$time_axis=lapply(df$time_axis, function(x) as.numeric(strsplit(x,split=",",fixed=TRUE)[[1]])) # convert csv to numeric vector
+df$data=lapply(df$data, function(x) x=x[1:min(unlist(lapply(df$data, function(x) x=length(x))))]) # determine and cut to shortest vector
+df_left <- df %>% filter(side=="left") # create a left and right dataset
+df_right <- df %>% filter(side=="right")
+time_axis=df$time_axis[[1]][1:min(unlist(lapply(df$data, function(x) x=length(x))))] # extract time axis and cut to shortest vector
+df_left_data=data.frame(df_left$data) # convert dataframe into a rowwise df with samples per row and trialtypes as columns
+df_right_data=data.frame(df_right$data) 
+df_left_data$time_axis <- time_axis # add time axis to df
+df_right_data$time_axis <- time_axis
+colnames(df_left_data) <- c(df_left$trial_type, "time") # add typenames to columns for easy selection
+colnames(df_right_data) <- c(df_right$trial_type, "time")
+output$leftplot <- renderPlot(plotTracesPerType(df_left_data))
+output$rightplot <- renderPlot(plotTracesPerType(df_right_data))
+
+  plotTracesPerType <- function(data) {
+    types=unique(colnames(data))
+    time=data[,colnames(data)=="time"]
+    dat=melt(data,id.vars="time")
+    dat$variable <- factor(dat$variable,levels= c("prepulse-soft","prepulse-medium","prepulse-hard","pulse-soft","pulse-medium","pulse-hard"))
+    ggplot(dat, aes(time,value, group=)) +
+        geom_line() +
+        facet_wrap(~variable)
+  }

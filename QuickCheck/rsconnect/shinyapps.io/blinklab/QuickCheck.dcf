@@ -1,0 +1,14 @@
+name: QuickCheck
+title: QuickCheck
+username:
+account: blinklab
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5341177
+bundleId: 5440000
+url: https://blinklab.shinyapps.io/QuickCheck/
+when: 1641468456.04265
+lastSyncTime: 1641468456.04265
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: desktop.ini|df|df.csv|oldcode|quick_plotter_HJB.R|www/desktop.ini

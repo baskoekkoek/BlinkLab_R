@@ -1,0 +1,13 @@
+name: SimpleDBmanager
+title: SimpleDBmanager
+username:
+account: blinklab
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5341681
+bundleId: 5401349
+url: https://blinklab.shinyapps.io/SimpleDBmanager/
+when: 1640185433.11805
+lastSyncTime: 1640185433.11805
+asMultiple: FALSE
+asStatic: FALSE

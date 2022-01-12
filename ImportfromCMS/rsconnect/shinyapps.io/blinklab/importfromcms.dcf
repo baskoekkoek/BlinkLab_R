@@ -1,0 +1,13 @@
+name: importfromcms
+title:
+username:
+account: blinklab
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5284857
+bundleId: 5452493
+url: https://blinklab.shinyapps.io/importfromcms/
+when: 1641828566.13472
+lastSyncTime: 1641828566.13472
+asMultiple: FALSE
+asStatic: FALSE
